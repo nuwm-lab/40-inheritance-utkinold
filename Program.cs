@@ -49,6 +49,15 @@ class Triangle
             AngleC = 180 - (AngleA + AngleB);
         }
 
+        public void CheckAngles()
+        {
+            if (AngleA <= 0 || AngleB <= 0)
+            {
+                Console.WriteLine("Кути повинні бути більшими за 0.");   
+                Environment.Exit(0);
+            }
+        }
+
 
         public void CalculateOtherSides()
         {
@@ -87,6 +96,7 @@ class Triangle
             Triangle1 t2 = new Triangle1();
             t2.InputSide1();
             t2.InputAngle1();
+            t2.CheckAngles();
             t2.CalculateOtherSides();
             t2.DisplayInfo1();
             t2.Perimeter1();
