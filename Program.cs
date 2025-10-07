@@ -2,28 +2,28 @@ using System;
 
 class Triangle
 {
-    public double A { get; set; }
-    public double B { get; set; }
-    public double C { get; set; }
+    public double SideA { get; set; }
+    public double SideB { get; set; }
+    public double SideC { get; set; }
 
-    public double A1 { get; set; }
-    public double B1 { get; set; }
-    public double C1 { get; set; }
+    public double AngleA { get; set; }
+    public double AngleB { get; set; }
+    public double AngleC { get; set; }
     public void InputSides()
     {
         Console.WriteLine("Введіть сторону a (усі сторони рівні):");
-        A = double.Parse(Console.ReadLine());
-        B = A;
-        C = A;
+        SideA = double.Parse(Console.ReadLine());
+        SideB = SideA;
+        SideC = SideA;
 
 
-        A1 = B1 = C1 = 60;
+        AngleA = AngleB = AngleC = 60;
     }
 
 
     public void Perimeter()
     {
-        double P = A + B + C;
+        double P = SideA + SideB + SideC;
         Console.WriteLine($"Периметр трикутника: {P}");
     }
 
@@ -36,41 +36,41 @@ class Triangle
         public void InputSide1()
         {
             Console.WriteLine("Введіть сторону a:");
-            A = double.Parse(Console.ReadLine());
+            SideA = double.Parse(Console.ReadLine());
         }
 
         public void InputAngle1()
         {
             Console.WriteLine("Введіть перший кут (A1):");
-            A1 = double.Parse(Console.ReadLine());
+            AngleA = double.Parse(Console.ReadLine());
             Console.WriteLine("Введіть другий кут (B1):");
-            B1 = double.Parse(Console.ReadLine());
+            AngleB = double.Parse(Console.ReadLine());
 
-            C1 = 180 - (A1 + B1);
+            AngleC = 180 - (AngleA + AngleB);
         }
 
 
         public void CalculateOtherSides()
         {
-            double radA = A1 * Math.PI / 180;
-            double radB = B1 * Math.PI / 180;
-            double radC = C1 * Math.PI / 180;
+            double radA = AngleA * Math.PI / 180;
+            double radB = AngleB * Math.PI / 180;
+            double radC = AngleC * Math.PI / 180;
 
-            B = A * Math.Sin(radB) / Math.Sin(radA);
-            C = A * Math.Sin(radC) / Math.Sin(radA);
+            SideB = SideA * Math.Sin(radB) / Math.Sin(radA);
+            SideC = SideA * Math.Sin(radC) / Math.Sin(radA);
         }
 
 
         public void Perimeter1()
         {
-            double P = A + B + C;
+            double P = SideA + SideB + SideC;
             Console.WriteLine($"Периметр трикутника: {P}");
         }
 
         public void DisplayInfo1()
         {
-            Console.WriteLine($"Сторони: a={A}, b={B}, c={C}");
-            Console.WriteLine($"Кути: A={A1}, B={B1}, C={C1}");
+            Console.WriteLine($"Сторони: a={SideA}, b={SideB}, c={SideC}");
+            Console.WriteLine($"Кути: A={AngleA}, B={AngleB}, C={AngleC}");
         }
     }
 
